@@ -18,8 +18,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
  * An activity that displays a Google map with a marker (pin) to indicate a particular location.
  */
 public class MainActivity extends AppCompatActivity
-        implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener, GoogleMap.OnInfoWindowClickListener{
-    private LatLng NTHU = new LatLng(24.793498, 120.991717);
+        implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener {
+    private LatLng NTHU = new LatLng(24.795726, 120.990707);
     private LatLng Court_A = new LatLng(24.793820, 120.990920);
     private LatLng Court_B = new LatLng(24.796373, 120.990330);
     private LatLng Court_New = new LatLng(24.793492, 120.991577);
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity
                 .title("新體").snippet("這邊有三個球場這邊有三個球場這邊有三個球場這邊有三個球場這邊有三個球場這邊有三個球場"));
         Marker_Court_Friend = mMap.addMarker(new MarkerOptions().position(Court_Friend)
                 .title("校體").snippet("這邊有三個球場這邊有三個球場這邊有三個球場這邊有三個球場這邊有三個球場這邊有三個球場"));
-
+        mMap.setOnInfoWindowClickListener(this);
         mMap.getUiSettings().setZoomControlsEnabled(true);
         mMap.getUiSettings().setCompassEnabled(true);
         mMap.getUiSettings().setMapToolbarEnabled(true);
@@ -77,23 +77,10 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public boolean onMarkerClick(Marker marker) {
-        /*if (marker.equals(Marker_Court_A))
-        {
-
-        }*/
-        return false;
-    }
-
-    @Override
     public void onInfoWindowClick(Marker marker) {
-        if (marker.equals(Marker_Court_A))
-        {
+        if (marker.equals(Marker_Court_A)) {
             Intent intent = new Intent(MainActivity.this, CourtInfoa.class);
-            startActivity(intent);
+            MainActivity.this.startActivity(intent);
         }
-        Intent intent = new Intent(MainActivity.this, CourtInfoa.class);
-        MainActivity.this.startActivity(intent);
-        Marker_Court_A.setSnippet("按到了啦");
     }
 }
