@@ -22,8 +22,13 @@ public class MainActivity extends AppCompatActivity
     private LatLng NTHU = new LatLng(24.793498, 120.991717);
     private LatLng Court_A = new LatLng(24.793820, 120.990920);
     private LatLng Court_B = new LatLng(24.796373, 120.990330);
+    private LatLng Court_New = new LatLng(24.793492, 120.991577);
+    private LatLng Court_Friend = new LatLng(24.795596, 120.989865);
     private GoogleMap mMap;
     private Marker Marker_Court_A;
+    private Marker Marker_Court_B;
+    private Marker Marker_Court_New;
+    private Marker Marker_Court_Friend;
     private Button rctbtn;
 
     @Override
@@ -57,6 +62,12 @@ public class MainActivity extends AppCompatActivity
 
         Marker_Court_A = mMap.addMarker(new MarkerOptions().position(Court_A)
                 .title("室外排球場").snippet("這邊有三個球場這邊有三個球場這邊有三個球場這邊有三個球場這邊有三個球場這邊有三個球場"));
+        Marker_Court_B = mMap.addMarker(new MarkerOptions().position(Court_B)
+                .title("室內網球場").snippet("這邊有三個球場這邊有三個球場這邊有三個球場這邊有三個球場這邊有三個球場這邊有三個球場"));
+        Marker_Court_New = mMap.addMarker(new MarkerOptions().position(Court_New)
+                .title("新體").snippet("這邊有三個球場這邊有三個球場這邊有三個球場這邊有三個球場這邊有三個球場這邊有三個球場"));
+        Marker_Court_Friend = mMap.addMarker(new MarkerOptions().position(Court_Friend)
+                .title("校體").snippet("這邊有三個球場這邊有三個球場這邊有三個球場這邊有三個球場這邊有三個球場這邊有三個球場"));
 
         mMap.getUiSettings().setZoomControlsEnabled(true);
         mMap.getUiSettings().setCompassEnabled(true);
@@ -83,5 +94,6 @@ public class MainActivity extends AppCompatActivity
         }
         Intent intent = new Intent(MainActivity.this, CourtInfoa.class);
         MainActivity.this.startActivity(intent);
+        Marker_Court_A.setSnippet("按到了啦");
     }
 }
