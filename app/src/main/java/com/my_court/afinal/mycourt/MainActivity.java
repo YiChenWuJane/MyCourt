@@ -78,10 +78,10 @@ public class MainActivity extends AppCompatActivity
     public void onInfoWindowClick(Marker marker) {
         if (marker.equals(Marker_Court_A))
         {
-            Intent intent = new Intent(MainActivity.this, CourtAActivity.class);
+            Intent intent = new Intent(MainActivity.this, CourtInfoa.class);
             startActivity(intent);
         }
-        Intent intent = new Intent(MainActivity.this, CourtAActivity.class);
+        Intent intent = new Intent(MainActivity.this, CourtInfoa.class);
         MainActivity.this.startActivity(intent);
     }
 }
