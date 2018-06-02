@@ -45,7 +45,9 @@
              You can define the keys for the debug and release targets in src/debug/ and src/release/. 
         -->
 
-        <activity android:name=".CourtInfoa"></activity>
+        <activity
+            android:name=".CourtInfoa"
+            android:label="球場資訊"></activity>
         <service android:name="org.eclipse.paho.android.service.MqttService" />
     </application>
 
