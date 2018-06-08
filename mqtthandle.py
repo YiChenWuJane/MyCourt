@@ -9,20 +9,22 @@ import paho.mqtt.client as mqtt
 import numpy as np
 import re
 
-# This is the Subscriber
-
+## function of 讀取/新增歷史紀錄 
 def init(): 
     global history_1
+    #讀檔
     try:  
         history_1 = np.load('record1.npy')
         print('history record: ', history_1)
-
+    
+    #沒有檔案就新創一個
     except EnvironmentError:
         print("No file, create new one")
         history_1 = np.zeros((24*6)) 
         
     print(history_1) ###for testing
-    
+ 
+## function of 資料分析
 def data_ana():
     # 上傳sensor分析結果 拿sensor1為範例
     # ON/OFF #
@@ -35,10 +37,12 @@ def data_ana():
     client.publish("GIOT-GW/UL/1C497B43217A/CourtProj3/local_host_S1", S1_str);
     print('剛剛上傳了一筆資料' + S1_str)
 
+## function of 連上mqtt
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code "+str(rc))
     client.subscribe("GIOT-GW/UL/1C497B43217A/CourtProj3") #放訂閱主題名
 
+## function of 收到資料處理
 def on_message(client, userdata, msg):
     # 收到的sensor封包格式  
     # C1: 資料1;C2: 資料2;C3: 資料3; 
