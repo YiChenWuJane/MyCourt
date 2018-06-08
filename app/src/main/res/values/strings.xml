@@ -2,4 +2,8 @@
     <string name="app_name">My Court</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_maps">Map</string>
+    <string name="back_button">Back</string>
+    <string name="recenter_button">Recenter</string>
+    <string name="no_data">沒資料... </string>
+    <string name="室外排球場">室外排球場 </string>
 </resources>
