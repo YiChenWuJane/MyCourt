@@ -40,7 +40,7 @@ def data_ana():
 ## function of 連上mqtt
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code "+str(rc))
-    client.subscribe("GIOT-GW/UL/1C497B43217A/CourtProj3") #放訂閱主題名
+    client.subscribe("GIOT-GW/UL/1C497B43217A") #放訂閱主題名
 
 ## function of 收到資料處理
 def on_message(client, userdata, msg):
@@ -53,6 +53,16 @@ def on_message(client, userdata, msg):
     
     ### 解sensor 1 資料
     try:
+        recog = re.search('\"macAddr\":\"0000000012345672\"', text).group()
+        print("找到一筆來自Sensor ID 0000000012345672 的資料")
+        #history_1 = np.append(C1, history_1[0:-1]);
+        #np.save('record1', history_1)
+    except AttributeError:
+    # 找不到指定字串
+        C1 = '' # apply your error handling
+        print("非來自Sensor ID 0000000012345672 的資料")
+        
+    try:
         C1 = int(re.search('C1: (.+?);', text).group(1))
         print("找到一筆C1: ", C1)
         history_1 = np.append(C1, history_1[0:-1]);
@@ -60,7 +70,7 @@ def on_message(client, userdata, msg):
     except AttributeError:
     # 找不到指定字串
         C1 = '' # apply your error handling
-        print("沒找到C1")
+        #print("沒找到C1")
     
     ### 解sensor 2 資料
     try:
