@@ -1,6 +1,7 @@
 package com.my_court.afinal.mycourt;
 
 import android.app.Activity;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -25,7 +26,7 @@ public class CustomInfoWindowAdapter implements GoogleMap.InfoWindowAdapter {
 
         TextView tvTitle = view.findViewById(R.id.tv_title);
         TextView tvSubTitle = view.findViewById(R.id.tv_subtitle);
-
+        Log.w("Debug", "adapter msg");
         tvTitle.setText(marker.getTitle());
         tvSubTitle.setText(marker.getSnippet());
 

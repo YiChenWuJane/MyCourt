@@ -5,4 +5,6 @@
     <color name="colorAccent">#FF4081</color>
     <color name="BK">#2d3324</color>
     <color name="DarkGray">#003030</color>
+    <color name="item">#484646</color>
+    <color name="itm">#2c2f2f</color>
 </resources>

@@ -18,7 +18,9 @@ public class CourtInfoa extends AppCompatActivity {
 
     private Button btn_return;
     private TextView tv_court_a_d1;
-    MqttHelper mqttHelper;
+    private MqttHelper mqttHelper;
+    private String message;
+    private String m1;
 
 
     @Override
@@ -30,6 +32,7 @@ public class CourtInfoa extends AppCompatActivity {
         btn_return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mqttHelper.mqttAndroidClient.close();
                 finish();
             }
         });
@@ -46,25 +49,35 @@ public class CourtInfoa extends AppCompatActivity {
         mqttHelper.setCallback(new MqttCallbackExtended() {
             @Override
             public void connectComplete(boolean b, String s) {
-
+                Log.w("Debug", "connection in a");
             }
 
             @Override
             public void connectionLost(Throwable throwable) {
-
+                tv_court_a_d1.setText(R.string.connlost);
             }
 
             @Override
             public void messageArrived(String topic, MqttMessage mqttMessage) throws Exception {
-                Log.w("Debug", mqttMessage.toString());
-                tv_court_a_d1.setText(mqttMessage.toString());
+//                Log.w("Debug", mqttMessage.toString()+topic+"message arrive in activity");
+//                if (topic.equals("CourtDataBase")) {
+//                    //Log.w("Debug", "successfully goin if");
+//                    message = mqttMessage.toString();
+//                    if(message.indexOf("C1H{")!=-1 && message.indexOf("C1E}")!=-1){
+//                        m1 = message.substring(message.indexOf("C1H{") + 4, message.indexOf("C1E}"));
+//                        tv_court_a_d1.setText(m1);
+//                    }
+//                    else{
+//                        tv_court_a_d1.setText("data error");
+//                    }
+//                }
             }
 
-            @Override
-            public void deliveryComplete(IMqttDeliveryToken iMqttDeliveryToken) {
+                    @Override
+                    public void deliveryComplete (IMqttDeliveryToken iMqttDeliveryToken){
+
+                    }
+                });
 
             }
-        });
-
-    }
-}
+        }

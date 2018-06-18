@@ -4,6 +4,10 @@
     <string name="title_activity_maps">Map</string>
     <string name="back_button">Back</string>
     <string name="recenter_button">Recenter</string>
-    <string name="no_data">沒資料... </string>
-    <string name="室外排球場">室外排球場 </string>
+    <string name="no_data">資料讀取中 </string>
+    <string name="外排">室外排球場 </string>
+    <string name="ComSon">Coming Soon</string>
+    <string name="connlost">連結已丟失</string>
+    <string name="freq">過去一小時活躍程度</string>
+    <string name="nodatayet">尚無資料</string>
 </resources>

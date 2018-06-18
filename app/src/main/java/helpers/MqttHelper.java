@@ -19,7 +19,7 @@ public class MqttHelper {
     final String serverUri = "tcp://167.99.224.125:1883";
 
     final String clientId = "ExampleAndroidClient";
-    final String subscriptionTopic = "GIOT-GW/UL/1C497B43217A/CourtProj3";
+    final String subscriptionTopic = "CourtDataBase";
 
     //final String username = "xxxxxxx";
     //final String password = "yyyyyyyyyy";
@@ -35,11 +35,13 @@ public class MqttHelper {
             @Override
             public void connectionLost(Throwable throwable) {
 
+
             }
 
             @Override
             public void messageArrived(String topic, MqttMessage mqttMessage) throws Exception {
                 Log.w("Mqtt", mqttMessage.toString());
+
             }
 
             @Override
