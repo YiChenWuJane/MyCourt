@@ -11,40 +11,53 @@
         android:id="@+id/tv_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@color/titlbg"
         android:gravity="center_horizontal"
-        android:text="@string/外排"
-        android:textColor="@color/itm"
+        android:textColor="@android:color/white"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/tv_item"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="@string/freq"
-        android:textColor="@color/DarkGray"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/tv_subtitle"
+    <TableRow
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:singleLine="false"
-        android:text="@string/nodatayet"
-        android:textSize="14sp" />
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@android:color/white">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/CrtImg"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:adjustViewBounds="false"
+            android:contentDescription="@string/CourtImage"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/outvolleycourt" />
 
-        <com.inthecheesefactory.thecheeselibrary.widget.AdjustableImageView
-            android:id="@+id/imageView"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            app:srcCompat="@drawable/outvolleycourt"
-            tools:adjustViewBounds="true" />
-    </LinearLayout>
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:text="@string/freq"
+                android:textColor="@color/titlbg"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="3pt"
+                android:singleLine="false"
+                android:text="@string/nodatayet"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </TableRow>
 
 </LinearLayout>
